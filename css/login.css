@@ -1,0 +1,84 @@
+body {
+    background-color: #f5f8fc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-bar {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.login-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+}
+
+.register-text {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+    color: #71717A;
+}
+
+.register-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.error-message {
+    color: red;
+    font-size: 10px;
+    display: none;
+}

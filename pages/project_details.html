@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/project_details.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <p>Quản Lý Dự Án</p>
+            </div>
+            <div class="user-info">
+                <a href="../pages/project_management.html">Dự Án</a>
+                <a style="color: #FFFFFF8C;" href="#">Nhiệm Vụ của tôi</a>
+                <a href="../pages/login.html">Đăng Xuất</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="project-header">
+            <div class="project-title">
+                <h2>Xây dựng website thương mại điện tử</h2>
+                <p>Dự án nhằm phát triển nền tảng thương mại điện tử với các tính năng như giỏ hàng, thanh toán và quản
+                    lý sản phẩm.</p>
+            </div>
+            <div class="project-info">
+                <div class="group">
+                    <h4>Thành viên</h4>
+                    <button>+ Thêm thành viên</button>
+                </div>
+                <div class="members">
+                    <div class="member"><span>AN</span>
+                        <div class="name">
+                            An Nguyễn<br><small>Project owner</small></div>
+                    </div>
+                    <div class="member"><span style="background:#a855f7;">BA</span>
+                        <div class="name">
+                            Bách Nguyễn<br><small>Frontend developer</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-controls">
+            <button class="btn btn-primary">+ Thêm nhiệm vụ</button>
+            <div class="task-controls">
+                <select>
+                    <option>Sắp xếp theo</option>
+                </select>
+                <input type="text" placeholder="Tìm kiếm nhiệm vụ" />
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên Nhiệm Vụ</th>
+                    <th>Người Phụ Trách</th>
+                    <th>Ưu Tiên</th>
+                    <th>Ngày Bắt Đầu</th>
+                    <th>Hạn Chót</th>
+                    <th>Tiến độ</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-title">
+                    <td colspan="7">▼ To do</td>
+                </tr>
+                <tr>
+                    <td>Soạn thảo đề cương dự án</td>
+                    <td>An Nguyễn</td>
+                    <td><span class="badge low">Thấp</span></td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge done">Đang tiến độ</span></td>
+                    <td><button class="btn btn-warning">Sửa</button> <button class="btn btn-danger">Xóa</button></td>
+                </tr>
+                <tr>
+                    <td>Soạn thảo đề cương dự án</td>
+                    <td>An Nguyễn</td>
+                    <td><span class="badge medium">Trung bình</span></td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge warning">Có rủi ro</span></td>
+                    <td><button class="btn btn-warning">Sửa</button> <button class="btn btn-danger">Xóa</button></td>
+                </tr>
+                <tr>
+                    <td>Soạn thảo đề cương dự án</td>
+                    <td>An Nguyễn</td>
+                    <td><span class="badge high">Cao</span></td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge late">Trễ hạn</span></td>
+                    <td><button class="btn btn-warning">Sửa</button> <button class="btn btn-danger">Xóa</button></td>
+                </tr>
+
+                <tr class="section-title">
+                    <td colspan="7">▼ In Progress</td>
+                </tr>
+                <tr>
+                    <td>Lên lịch họp kickoff</td>
+                    <td>An Nguyễn</td>
+                    <td><span class="badge medium">Trung bình</span></td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge warning">Có rủi ro</span></td>
+                    <td><button class="btn btn-warning">Sửa</button> <button class="btn btn-danger">Xóa</button></td>
+                </tr>
+
+                <tr class="section-title">
+                    <td colspan="7">▼ Pending</td>
+                </tr>
+                <tr>
+                    <td colspan="7"></td>
+                </tr>
+
+                <tr class="section-title">
+                    <td colspan="7">▼ Done</td>
+                </tr>
+                <tr>
+                    <td colspan="7"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <p>© 2025 Quản Lý Dự Án Nhóm. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+        integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

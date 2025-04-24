@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="header-bar">
+        Trang đăng nhập
+    </header>
+    <div class="container">
+        <div class="login-box">
+            <h2>Đăng nhập</h2>
+            <form id="loginForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Địa chỉ email" required />
+                <div id="email-error" class="error-message"></div>
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Mật khẩu" required />
+                <div id="password-error" class="error-message"></div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                <p class="register-text">
+                    Chưa có tài khoản? <a href="../pages/register.html">Đăng ký</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script src="../js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+        integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
+        crossorigin="anonymous"></script>
+</body>
+</html>
