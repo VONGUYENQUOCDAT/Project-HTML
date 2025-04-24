@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body>
     <header>
         <div class="navbar">
@@ -26,18 +28,16 @@
         <div class="box">
             <div>
                 <p style="font-size: 20px;">Quản Lý Dự Án Nhóm</p>
-                <button class="btn btn-primary" onclick="toggleAddForm()">+ Thêm Dự Án</button>
+                <button class="btn btn-primary" onclick="openAddModal()">+ Thêm Dự Án</button>
                 <input type="hidden" id="editIndex" value="" />
             </div>
             <div id="addProjectForm" style="display: none; margin-top: 10px;">
                 <form onsubmit="addProject(event)">
                     <input class="form-control mb-2 projectName" name="projectName" placeholder="Nhập tên dự án" />
-                    <button type="submit" class="btn btn-success">Lưu</button>
-                    <button type="button" class="btn btn-secondary" onclick="toggleAddForm()">Hủy</button>
                 </form>
             </div>
             <div>
-                <input type="text" placeholder="Tìm kiếm dự án">
+                <input id="searchInput" class="form-control" type="text" placeholder="Tìm kiếm dự án">
             </div>
         </div>
         <p style="font-weight: bold;margin-top: 10px;font-size: 20px;">Danh sách dự án</p>
@@ -74,12 +74,61 @@
     <div class="pagination-container">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#"><</a></li>
+                <!-- <li class="page-item"><a class="page-link" href="#"><</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">></a></li>
+                <li class="page-item"><a class="page-link" href="#">></a></li> -->
+            </ul>
         </nav>
+    </div>
+    <!-- modal thêm/sửa -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Thêm/sửa dự án</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="projectForm">
+                        <div class="mb-3">
+                            <label for="projectNameInput" class="form-label">Tên dự án</label>
+                            <input type="text" class="form-control is-invalid" id="projectNameInput"
+                                placeholder="Nhập tên dự án">
+                            <div class="invalid-feedback">Tên dự án không được để trống / đã tồn tại</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectDescInput" class="form-label">Mô tả dự án</label>
+                            <textarea class="form-control" id="projectDescInput" placeholder="Nhập mô tả"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                    <button type="button" class="btn btn-primary" id="saveProjectBtn">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal xoa -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteLabel">Xác nhận xoá</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn chắc chắn muốn xoá dự án này?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                    <button type="button" class="btn btn-danger" id="deleteProjectBtn">Xoá</button>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <p>© 2025 Team management. All rights reserved.</p>
@@ -92,4 +141,5 @@
         integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
