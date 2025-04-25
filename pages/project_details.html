@@ -34,7 +34,7 @@
             <div class="project-info">
                 <div class="group">
                     <h4>Thành viên</h4>
-                    <button>+ Thêm thành viên</button>
+                    <button data-bs-toggle="modal" data-bs-target="#addMemberModal">+ Thêm thành viên</button>
                 </div>
                 <div class="members">
                     <div class="member"><span>AN</span>
@@ -46,10 +46,11 @@
                             Bách Nguyễn<br><small>Frontend developer</small></div>
                     </div>
                 </div>
+                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#memberListModal">...</button>
             </div>
         </div>
         <div class="project-controls">
-            <button class="btn btn-primary">+ Thêm nhiệm vụ</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">+ Thêm nhiệm vụ</button>
             <div class="task-controls">
                 <select>
                     <option>Sắp xếp theo</option>
@@ -129,6 +130,125 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <!-- modal thanh vien -->
+    <div class="modal fade" id="memberListModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thành viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Thành viên</th>
+                                <th>Vai trò</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberList"></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button class="btn btn-primary">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal them thanh vien -->
+    <div class="modal fade" id="addMemberModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thêm thành viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addMemberForm">
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="memberEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Vai trò</label>
+                            <input type="text" class="form-control" id="memberRole" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                    <button class="btn btn-primary" id="saveMemberBtn">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal them/sua -->
+    <div class="modal fade" id="taskModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thêm/sửa nhiệm vụ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="taskForm">
+                        <div class="mb-3">
+                            <label>Tên nhiệm vụ</label>
+                            <input type="text" class="form-control" id="taskName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Người phụ trách</label>
+                            <input type="text" class="form-control" id="taskOwner">
+                        </div>
+                        <div class="mb-3">
+                            <label>Trạng thái</label>
+                            <select class="form-select" id="taskStatus">
+                                <option value="">Chọn trạng thái nhiệm vụ</option>
+                                <option>To Do</option>
+                                <option>In Progress</option>
+                                <option>Pending</option>
+                                <option>Done</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label>Ngày bắt đầu</label>
+                            <input type="date" class="form-control" id="taskStart">
+                        </div>
+                        <div class="mb-3">
+                            <label>Hạn cuối</label>
+                            <input type="date" class="form-control" id="taskEnd">
+                        </div>
+                        <div class="mb-3">
+                            <label>Độ ưu tiên</label>
+                            <select class="form-select" id="taskPriority">
+                                <option>Thấp</option>
+                                <option>Trung bình</option>
+                                <option>Cao</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label>Tiến độ</label>
+                            <select class="form-select" id="taskProgress">
+                                <option>0%</option>
+                                <option>25%</option>
+                                <option>50%</option>
+                                <option>75%</option>
+                                <option>100%</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                    <button class="btn btn-primary" id="saveTaskBtn">Lưu</button>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <p>© 2025 Quản Lý Dự Án Nhóm. All rights reserved.</p>
