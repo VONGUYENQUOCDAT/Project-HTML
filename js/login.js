@@ -7,6 +7,10 @@ document.querySelector('#loginForm').addEventListener('submit', function (event)
     let passwordError = document.querySelector('#password-error');
     let valid = true;
 
+    // xoa loi cu
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
     if (!validateEmail(email)) {
         emailError.textContent = 'Email không hợp lệ';
         emailError.style.display = 'block';
@@ -24,7 +28,16 @@ document.querySelector('#loginForm').addEventListener('submit', function (event)
     }
 
     if (valid) {
-        window.location.href = "../pages/project_management.html";
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+            alert("Đăng nhập thành công!");
+            window.location.href = "../pages/project_management.html";
+        } else {
+            passwordError.textContent = 'Email hoặc mật khẩu không chính xác';
+            passwordError.style.display = 'block'
+        }
     }
 });
 

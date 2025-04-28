@@ -21,9 +21,6 @@ document.querySelector("#registerForm").addEventListener("submit", function (e) 
     } else if (!/^\S+@\S+\.\S+$/.test(email)) {
         document.querySelector("#error-email").textContent = "Email không đúng định dạng.";
         valid = false;
-    } else if (email === "test@gmail.com") { // giả lập email trùng
-        document.querySelector("#error-email").textContent = "Email đã được sử dụng.";
-        valid = false;
     }
     if (password.length < 8) {
         document.querySelector("#error-password").textContent = "Mật khẩu phải có ít nhất 8 ký tự.";
@@ -34,6 +31,22 @@ document.querySelector("#registerForm").addEventListener("submit", function (e) 
         valid = false;
     }
     if (valid) {
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        const emailExists = users.some(u => u.email === email);
+
+        if (emailExists) {
+            document.querySelector("#error-email").textContent = "Email đã được sử dụng.";
+            return;
+        }
+
+        const user = {
+            fullname: fullname,
+            email: email,
+            password: password
+        };
+
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
         alert("Đăng ký thành công!");
         window.location.href = "../pages/login.html";
     }
