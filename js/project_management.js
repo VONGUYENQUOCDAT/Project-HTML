@@ -1,16 +1,28 @@
 let currentUser = "nguyenvana";
-let project = {
-    id: 1,
-    name: "Ứng dụng quản lý công việc",
-    owner: "nguyenvana"
-}
-let projects = [project];
+let projects = JSON.parse(localStorage.getItem('projects')) || [
+    {
+        id: 1,
+        name: "Ứng dụng quản lý công việc",
+        description: "Ứng dụng giúp quản lý công việc nhóm hiệu quả",
+        owner: "nguyenvana"
+    },
+    {
+        id: 2,
+        name: "Phát triển ứng dụng di động",
+        description: "Xây dựng app mobile cho doanh nghiệp",
+        owner: "nguyenvana"
+    },
+];
 let searchKeyword = "";
 let currentPage = 1;
 const rowsPerPage = 5;
 let deleteIndex = null;
 
 const tableDataEl = document.querySelector(".table_data");
+
+function isProjectNameExist(name, editIndex = null) {
+    return projects.find((p, i) => p.name === name && p.owner === currentUser && i !== editIndex);
+}
 
 function renderData() {
     let filteredProjects = projects.filter(project =>
@@ -57,6 +69,7 @@ function addProject(e) {
     e.preventDefault();
 
     const nameInput = e.target.projectName.value.trim();
+    const descInput = e.target.projectDesc.value.trim();
     const editIndex = document.getElementById("editIndex").value;
 
     if (nameInput === "") {
@@ -69,27 +82,37 @@ function addProject(e) {
         return;
     }
 
-    let existed = projects.find((p, i) => p.name === nameInput && p.owner === currentUser && i != editIndex);
-
-    if (existed) {
+    if (isProjectNameExist(nameInput, editIndex)) {
         alert("Tên dự án đã tồn tại");
+        return;
+    }
+
+    if (descInput === "") {
+        alert("Mô tả dự án không được để trống");
+        return;
+    }
+
+    if (descInput.length < 10) {
+        alert("Mô tả dự án phải có ít nhất 10 ký tự");
         return;
     }
 
     // nếu đang sửa
     if (editIndex !== "") {
         projects[editIndex].name = nameInput;
+        projects[editIndex].description = descInput;
         document.getElementById("editIndex").value = "";
     } else {
         // thêm mới
         let newProject = {
             id: projects.length + 1,
             name: nameInput,
+            description: descInput,
             owner: currentUser
         };
         projects.push(newProject);
     }
-
+    saveProjectsToLocalStorage();
     e.target.reset(); // reset form
     toggleAddForm();  // ẩn form
     renderData();     // render lại bảng
@@ -103,6 +126,8 @@ function deleteProject(index) {
 function renderDataUpdate(index) {
     const projectTarget = projects[index];
     document.querySelector(".projectName").value = projectTarget.name;
+    document.getElementById("projectNameInput").value = projectTarget.name;
+    document.getElementById("projectDescInput").value = projectTarget.description || "";
     document.getElementById("editIndex").value = index;
     document.getElementById("projectModalLabel").innerText = "Chỉnh Sửa Dự Án";
     new bootstrap.Modal(document.getElementById("projectModal")).show();
@@ -147,6 +172,7 @@ function openAddModal() {
 document.getElementById("saveProjectBtn").addEventListener("click", function () {
     const nameInput = document.getElementById("projectNameInput").value.trim();
     const editIndex = document.getElementById("editIndex").value;
+    const descInput = document.getElementById("projectDescInput").value.trim();
 
     if (nameInput === "") {
         alert("Tên dự án không được để trống");
@@ -158,22 +184,34 @@ document.getElementById("saveProjectBtn").addEventListener("click", function () 
         return;
     }
 
-    let existed = projects.find((p, i) => p.name === nameInput && p.owner === currentUser && i != editIndex);
-    if (existed) {
+    if (isProjectNameExist(nameInput, editIndex)) {
         alert("Tên dự án đã tồn tại");
+        return;
+    }
+
+    if (descInput === "") {
+        alert("Mô tả dự án không được để trống");
+        return;
+    }
+
+    if (descInput.length < 10) {
+        alert("Mô tả dự án phải có ít nhất 10 ký tự");
         return;
     }
 
     if (editIndex !== "") {
         projects[editIndex].name = nameInput;
+        projects[editIndex].description = descInput;
     } else {
         projects.push({
             id: projects.length + 1,
             name: nameInput,
+            description: descInput,
             owner: currentUser
         });
     }
 
+    saveProjectsToLocalStorage();
     document.getElementById("editIndex").value = "";
     document.getElementById("projectNameInput").value = "";
     document.getElementById("projectDescInput").value = "";
@@ -185,8 +223,14 @@ document.getElementById("saveProjectBtn").addEventListener("click", function () 
 document.getElementById("deleteProjectBtn").addEventListener("click", function () {
     if (deleteIndex !== null) {
         projects.splice(deleteIndex, 1);
+        saveProjectsToLocalStorage();
         deleteIndex = null;
         bootstrap.Modal.getInstance(document.getElementById("confirmDeleteModal")).hide();
         renderData();
     }
 });
+
+// luu du lieu
+function saveProjectsToLocalStorage() {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
