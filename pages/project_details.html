@@ -238,18 +238,16 @@
                         <div class="mb-3">
                             <label>Tiến độ</label>
                             <select class="form-select" id="taskProgress">
-                                <option>0%</option>
-                                <option>25%</option>
-                                <option>50%</option>
-                                <option>75%</option>
-                                <option>100%</option>
+                                <option>Trễ hạn</option>
+                                <option>Có rủi ro</option>
+                                <option>Đúng tiến độ</option>
                             </select>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
-                    <button class="btn btn-primary" id="saveTaskBtn">Lưu</button>
+                    <button class="btn btn-primary" id="saveTaskBtn" onclick="saveTask()">Lưu</button>
                 </div>
             </div>
         </div>
@@ -269,7 +267,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
-                    <button type="button" class="btn btn-danger" id="deleteProjectBtn">Xoá</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Xoá</button>
                 </div>
             </div>
         </div>
@@ -284,6 +282,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
         integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
