@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/project_details.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <p>Quản Lý Dự Án</p>
+            </div>
+            <div class="user-info">
+                <a href="../pages/project_management.html">Dự Án</a>
+                <a style="color: #FFFFFF8C;" href="#">Nhiệm Vụ của tôi</a>
+                <a href="../pages/login.html">Đăng Xuất</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="project-header">
+            <div class="project-title">
+                <h2>Quản lí nhiệm vụ</h2>
+            </div>
+        </div>
+        <div class="project-controls">
+            <div class="task-controls">
+                <select>
+                    <option>Sắp xếp theo</option>
+                </select>
+                <input type="text" placeholder="Tìm kiếm nhiệm vụ" />
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên Nhiệm Vụ</th>
+                    <th>Độ Ưu Tiên</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày Bắt Đầu</th>
+                    <th>Hạn Chót</th>
+                    <th>Tiến độ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-title">
+                    <td colspan="7">▼ Xây dựng website thương mại điện tử</td>
+                </tr>
+                <tr>
+                    <td>Soạn thảo đề cương dự án</td>
+                    <td><span class="badge low">Thấp</span></td>
+                    <td>In Progress</td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge done">Đang tiến độ</span></td>
+                </tr>
+                <tr>
+                    <td>Soạn thảo đề cương dự án</td>
+                    <td><span class="badge medium">Trung bình</span></td>
+                    <td>In Progress</td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge warning">Có rủi ro</span></td>
+                </tr>
+                <tr>
+                    <td>Soạn thảo đề cương dự án</td>
+                    <td><span class="badge high">Cao</span></td>
+                    <td>Pending</td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge late">Trễ hạn</span></td>
+                </tr>
+
+                <tr class="section-title">
+                    <td colspan="7">▼ Phát triển ứng dụng di động</td>
+                </tr>
+                <tr>
+                    <td>Lên lịch họp kickoff</td>
+                    <td><span class="badge medium">Trung bình</span></td>
+                    <td>In Progress</td>
+                    <td class="date">02 - 24</td>
+                    <td class="date">02 - 27</td>
+                    <td><span class="badge warning">Có rủi ro</span></td>
+                </tr>
+
+                <tr class="section-title">
+                    <td colspan="7">▼ Quản lí dữ liệu khách hàng</td>
+                </tr>
+                <tr>
+                    <td colspan="7"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <p>© 2025 Quản Lý Dự Án Nhóm. All rights reserved.</p>
+    </footer>
+    <script src="../js/project_details.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+        integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
